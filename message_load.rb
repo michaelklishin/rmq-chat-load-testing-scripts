@@ -7,7 +7,7 @@ md5 = Digest::MD5.new
 require 'rubygems'
 require 'json'
 
-$message = 'This is spam.'
+$message = ENV.fetch("MESSAGE", "We are army of robots!")
 
 Thread.new do
   client = WebSocket.new("ws://69.195.198.92:8080/server")
@@ -38,7 +38,7 @@ end
         :message=>"#{$message} " * 50,
         #:message=>"Shut up, tester. " * 75,
         #:message=>"<a><a><a><a><a> " * 50,
-        :name=>"danobot-#{c[0]}",
+        :name=>"loadbot-#{c[0]}",
         :gravatar=>"b3ad324a454d7b507e34650f24f59493",
         :timestamp=>time.to_i * 1000
       }
